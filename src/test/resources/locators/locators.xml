@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding = "UTF-8"?>
+<Pages>
+      <SignUpPage>
+       <fName>//input[@name='firstName']</fName>
+       <lName>//input[@name='lastName']</lName>
+
+      </SignUpPage>
+      <SearchPage>
+      <qbox>value of the  qqq	      </qbox>
+      <submitBtn>value of the locator          </submitBtn>
+      
+      </SearchPage>
+
+
+
+</Pages>
