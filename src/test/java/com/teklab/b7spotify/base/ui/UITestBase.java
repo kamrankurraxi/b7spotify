@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import com.teklab.b7spotify.utilities.datamanagers.ExcelManager;
 import com.teklab.b7spotify.utilities.datamanagers.JsonManager;
@@ -17,7 +19,7 @@ import com.teklab.b7spotify.utilities.webactionutils.DriverUtil;
 
 
 public class UITestBase extends TestListener {
-	protected static WebDriver driver;
+	//protected static WebDriver driver;
 
 	
 	protected static String myjsonfilePath = System.getProperty("user.dir")
@@ -41,8 +43,8 @@ public class UITestBase extends TestListener {
 	public void beforeEachTestCase() {
 		String browser = System.getProperty("browser");
 		driver = DriverUtil.starBrowser("chrome");
-//		driver = DriverUtil.startBrowserInPrivateMode(browser);
-	//	driver = DriverUtil.starDockerContainerBrowser(browser);
+      //   driver = DriverUtil.startBrowserInPrivateMode(browser);
+		//driver = DriverUtil.starDockerContainerBrowser(browser);
 	}
 	
 
@@ -51,7 +53,7 @@ public class UITestBase extends TestListener {
 
 	@AfterMethod
 	public static void closeBrowser() {
-        
+        driver.close();
 		driver.quit();
 	}
 	
@@ -66,14 +68,14 @@ public class UITestBase extends TestListener {
 //		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 //		driver.manage().window().maximize();
 //	}
-		
-		public void pause(int seconds) {
-		try {
-			Thread.sleep(seconds * 1000);// pause your application for two second
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+//		
+//		public void pause(int seconds) {
+//		try {
+//			Thread.sleep(seconds * 1000);// pause your application for two second
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	public void highLight(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;

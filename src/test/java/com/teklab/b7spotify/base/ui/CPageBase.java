@@ -2,6 +2,7 @@ package com.teklab.b7spotify.base.ui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.teklab.b7spotify.utilities.reportManagers.TestListener;
@@ -11,7 +12,7 @@ import com.teklab.b7spotify.utilities.webactionutils.WaitUtil;
 
 // helping method utilities method 
 public class CPageBase extends TestListener {
-	
+	//protected static WebDriver driver;
 	//	
     protected	ElementActions weu = new ElementActions(driver);
 	protected   WaitUtil bbb = new WaitUtil(driver);
@@ -40,6 +41,7 @@ public class CPageBase extends TestListener {
 		WebElement ele = driver.findElement(bylocator);
 		ele.clear();
 		ele.sendKeys(text);
+		
 		
 	}
 }

@@ -13,8 +13,8 @@ import com.teklab.b7spotify.utilities.reportManagers.Log4jManager;
 
 
 public class SporityPage extends CPageBase{
-	protected static WebDriver driver;
-		private String url="https://www.spotify.com/us/signup/";
+	
+	public String url="https://www.spotify.com/us/signup/?sp_t_counter=1";
 		
 		@FindBy(xpath="//input[@name='displayname']")
 		@CacheLookup
@@ -32,26 +32,28 @@ public class SporityPage extends CPageBase{
 	   
 		public SporityPage goToSignUpPage() {
 			logger.createNode("user go to sign up page");
-		    driver.get(url);
+		
+		     driver.get(url);
 			System.out.println("user go to yahoo sign up");
 			Log4jManager.info("user landed on sign up page");
 			return this;
 			
 		}
-		public SporityPage enterSignInfo() {
+		public SporityPage enterSignInfo()  {
 			logger.createNode("user tries to enter all information");
 			System.out.println("user enter all sign up infromation");
 			enterFirstName();
 			enterPassword();
 			enterEmail();
 			Log4jManager.info("user entered all information");
+			//pause(2);
 			
 			return this;
 		}
 	public SporityPage  verifyUrl() {
 			
 			logger.createNode("user verigying url");
-			String expectedURL = "https://www.spotify.com/us/signup/?sp_t_counter=1";
+			String expectedURL = "https://www.spotify.com/us/signup?sp_t_counter=1";
 			String actualURL = driver.getCurrentUrl();
 			Assert.assertEquals(actualURL, expectedURL);
 			Log4jManager.info("go to to the page");
